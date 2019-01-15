@@ -1,0 +1,34 @@
+{
+  "name": "theatre",
+  "version": "0.0.1",
+  "description": "sit down and relax",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosWirama/theatre.git"
+  },
+  "author": "Carlos Wirama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosWirama/theatre/issues"
+  },
+  "homepage": "https://github.com/CarlosWirama/theatre#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-router": "^4.3.1",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
