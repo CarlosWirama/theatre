@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -15,7 +15,6 @@ export default class HomePage extends React.Component {
   }
 
   onSearch() {
-    console.log(this.state.searchString);
     this.props.history.push(`/search?q=${this.state.searchString}`);
   }
 
