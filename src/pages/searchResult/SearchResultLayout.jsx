@@ -1,16 +1,14 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
-import Header from 'components/Header';
+import { SearchHeader } from 'components/Header';
 import SearchInput from 'components/SearchInput';
 import ResultItem from 'components/ResultItem';
 
 export default function SearchResultLayout(props) {
   return (
     <React.Fragment>
-      <Header>
-        <SearchInput {...props} />
-      </Header>
+      <SearchHeader {...props} />
       <Content>
         <Heading>Result for "{props.keywords}" ...</Heading>
         { props.isLoading ? `loading...` :

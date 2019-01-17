@@ -22,7 +22,7 @@ export default class SearchInput extends React.Component {
 
   render() {
     return (
-      <StyledForm action="search">
+      <StyledForm action="search" >
         <StyledInput
           type="search"
           name="q"
@@ -38,6 +38,7 @@ export default class SearchInput extends React.Component {
 
 const StyledForm = styled.form`
   display: flex;
+  width: 100%;
 `;
 const StyledInput = styled(Input)`
   background: white;
