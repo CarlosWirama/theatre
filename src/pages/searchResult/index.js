@@ -31,28 +31,27 @@ export default class SearchResultPage extends React.Component {
     /** TODO: remove error before fetch, and
      * TODO: add error catch / show errors from response */
     this.setState({ isLoading: true });
-    fetchSearch(this.props.location.search)
+
+    /** TODO: dont encode URL, e.g. %20 */
+    /** get `q` params from URL's query string */
+    const { q } = queryStringParser.parse(this.props.location.search);
+    Tmdb.searchMovie(q)
       .then(response => this.setState({
         isLoading: false,
+        keywords: q,
         ...response,
       }));
   }
 
   render() {
-    const { isLoading, results } = this.state;
+    const { isLoading, results, keywords } = this.state;
     return (
       <SearchResultLayout
         isLoading={isLoading}
         results={results}
+        keywords={keywords}
         {...this.props}
       />
     );
   }
-}
-
-async function fetchSearch(queryString) {
-  /** TODO: dont encode URL, e.g. %20 */
-  /** get `q` params from URL's query string */
-  const { q } = queryStringParser.parse(queryString);
-  return await Tmdb.multiSearch(q);
 }

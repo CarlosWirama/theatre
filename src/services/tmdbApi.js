@@ -2,6 +2,13 @@ import moment from 'moment';
 const domain = 'https://api.themoviedb.org/3';
 const apiKey = '7dd602bc9712db0acd193ffe3930be8d';
 
+export async function searchMovie(query) {
+  const endpoint = '/search/movie';
+  const url = `${domain}${endpoint}?api_key=${apiKey}&query=${query}`;
+  const ret = await fetch(url);
+  return ret.json();
+}
+
 export async function multiSearch(query) {
   const endpoint = '/search/multi';
   const url = `${domain}${endpoint}?api_key=${apiKey}&query=${query}`;

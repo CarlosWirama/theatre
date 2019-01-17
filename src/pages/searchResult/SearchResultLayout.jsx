@@ -12,15 +12,17 @@ export default function SearchResultLayout(props) {
         <SearchInput {...props} />
       </Header>
       <Content>
-      { props.isLoading ? `loading...` :
-        <Grid container direction="row" justify="center" alignItems="center">
-          { !props.results.length ? `not found` :
-            props.results.map((movie, i) => (
-              <ResultItem item={movie} key={i} />
-            ))
-          }
-        </Grid>
-      }
+        <Heading>Result for "{props.keywords}" ...</Heading>
+        { props.isLoading ? `loading...` :
+          <Grid container direction="row" justify="center" alignItems="center">
+            { !props.results.length ? `not found` :
+              props.results.map((movie, i) => (
+                <ResultItem item={movie} key={i} />
+              ))
+            }
+          </Grid>
+        }
+        {/* TODO: infinite scroll from here */}
       </Content>
     </React.Fragment>
   );
@@ -28,4 +30,8 @@ export default function SearchResultLayout(props) {
 
 const Content = styled.div`
   padding-top: 56px;
+`;
+
+const Heading = styled.h3`
+  padding: 0 24px;
 `;

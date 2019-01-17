@@ -12,7 +12,8 @@ export default function MovieDetailPage(props) {
       detailPropertyName={[
         {field: 'release_date', title: 'Released year', formatter: date => date.substring(0,4)},
         {field: 'runtime', title: 'Runtime', formatter: runtime => `${runtime} mins`},
-        // {field: 'popularity', title: 'Runtime', formatter: runtime => `${runtime} mins`},
+        {field: 'genres', title: 'Genre', formatter: genres => genres.map(i => i.name).join(', ')},
+        {field: 'vote_average', title: 'Rating', formatter: rating => `${rating} / 10`},
       ]}
       listDetailPropertyName={{
         linkTo: 'person',
