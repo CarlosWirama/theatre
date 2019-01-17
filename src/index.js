@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import SearchResultPage from './pages/SearchResultPage';
+import SearchResultPage from './pages/searchResult';
 import MovieDetailPage from './pages/MovieDetailPage';
 import PersonDetailPage from './pages/PersonDetailPage';
 
@@ -12,8 +12,8 @@ function Index() {
 			<Switch>
 				<Route exact path="/" component={HomePage} />
 				<Route path="/search" component={SearchResultPage} />
-				<Route path="/movie" component={MovieDetailPage} />
-				<Route path="/person" component={PersonDetailPage} />
+				<Route path="/movie/:id" component={MovieDetailPage} />
+				<Route path="/person/:id" component={PersonDetailPage} />
 			</Switch>
 		</BrowserRouter>
 	);

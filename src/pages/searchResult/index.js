@@ -1,8 +1,7 @@
 import React from 'react';
 import queryStringParser from 'query-string';
-// import memoize from "memoize-one";
 import Tmdb from 'services/tmdbApi';
-import SearchInput from 'components/SearchInput';
+import SearchResultLayout from './SearchResultLayout';
 
 export default class SearchResultPage extends React.Component {
   constructor(props){
@@ -11,6 +10,7 @@ export default class SearchResultPage extends React.Component {
       isLoading: false,
       page: null,
       results : [],
+      errors: [],
     }
   }
 
@@ -28,6 +28,8 @@ export default class SearchResultPage extends React.Component {
   }
 
   getSearchResult() {
+    /** TODO: remove error before fetch, and
+     * TODO: add error catch / show errors from response */
     this.setState({ isLoading: true });
     fetchSearch(this.props.location.search)
       .then(response => this.setState({
@@ -39,27 +41,13 @@ export default class SearchResultPage extends React.Component {
   render() {
     const { isLoading, results } = this.state;
     return (
-      <div>
-        <SearchInput {...this.props} />
-        { isLoading ? `loading...` :
-          <div>
-            { !results.length ? `not found` :
-              results.map((movie, i) => (
-              <SearchResultItem item={movie} key={i} />
-            ))}
-          </div>
-        }
-      </div>
+      <SearchResultLayout
+        isLoading={isLoading}
+        results={results}
+        {...this.props}
+      />
     );
   }
-}
-
-function SearchResultItem({item}) {
-  return (
-    <div>
-      {item.title}
-    </div>
-  );
 }
 
 async function fetchSearch(queryString) {
