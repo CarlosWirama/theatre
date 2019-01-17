@@ -54,3 +54,10 @@ export async function movieCredits(movieId) {
   const ret = await fetch(url);
   return ret.json();
 }
+
+export async function personCredits(personId) {
+  const endpoint = `/person/${personId}/combined_credits`;
+  const url = `${domain}${endpoint}?api_key=${apiKey}`;
+  const ret = await fetch(url);
+  return ret.json();
+}
