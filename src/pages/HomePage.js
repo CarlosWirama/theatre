@@ -48,7 +48,7 @@ function Section({ title, list = [] }) {
       <GridContainer>
         <GridList>
           {list.map((movie, i) =>
-            <ResultItem item={movie} key={i} />
+            <ResultItem item={movie} imageSize="w185" key={i} />
           )}
         </GridList>
       </GridContainer>

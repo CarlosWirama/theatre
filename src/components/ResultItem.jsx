@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Image from 'components/Image';
 
-export default function ResultItem({item}) {
+export default function ResultItem({ item, imageSize }) {
   /** TODO: proper 404image, dont specify width height like this */
   const year = item.release_date
     ? `(${item.release_date.substring(0,4)})`
@@ -11,7 +11,7 @@ export default function ResultItem({item}) {
   const title = item.title || item.name;
   return (
     <StyledLink to={`movie?id=${item.id}`}>
-      <Image src={item.poster_path} alt={title} />
+      <Image src={item.poster_path} imageSize={imageSize} alt={title} />
       <ResultText>
         {`${year} ${title}`}
         {/* {item.popularity} */}

@@ -33,7 +33,7 @@ export default class DetailPage extends React.Component {
         ...response,
       }));
       this.props.creditApi(id)
-      .then(({ cast }) => this.setState({
+      .then(({ cast = [] }) => this.setState({
         isCastsLoading: false,
         cast,
       }));
@@ -67,16 +67,14 @@ export default class DetailPage extends React.Component {
                 )}
               </DetailContainer>
             </StyledGrid>
-              <div>{this.state[descriptionPropertyName]}</div>
+            <LongDescription>{this.state[descriptionPropertyName]}</LongDescription>
             <Cast>
               {this.state.cast.map(item =>
                 <Link to={`${linkTo}?id=${item.id}`} key={item.id}>
                   <ListItem container>
-                    {/** TODO: use 'w45' size for poster_path */}
                     <Image
                       src={item[`${subImagePrefix}_path`]}
-                      width="45"
-                      height="68"
+                      imageSize="w45"
                       alt={subImagePrefix}
                     />
                     <ListItemDetail>
@@ -109,6 +107,11 @@ function Detail({ title, value, render, formatter }) {
 
 const Content = styled.div`
   padding: 56px 16px 0;
+`;
+
+const LongDescription = styled.div`
+  text-align: justify;
+  text-indent: 2em;
 `;
 
 const DetailTitle = styled.div`

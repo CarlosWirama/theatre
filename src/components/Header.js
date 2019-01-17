@@ -8,6 +8,8 @@ export default styled.div`
   height: 36px;
   padding: 10px;
   width: calc(100% - 20px);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+  text-align: center;
   z-index: 1;
   white-space: nowrap;  
   overflow: hidden;
