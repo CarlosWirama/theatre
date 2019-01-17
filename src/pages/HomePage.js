@@ -44,7 +44,7 @@ export default class HomePage extends React.Component {
 function Section({ title, list = [] }) {
   return (
     <SectionContainer>
-      {title}
+      <Title>{title}</Title>
       <GridContainer>
         <GridList>
           {list.map((movie, i) =>
@@ -55,6 +55,10 @@ function Section({ title, list = [] }) {
     </SectionContainer>
   );
 }
+const Title = styled.h3`
+  margin: 30px 0 0;
+`;
+
 const GridContainer = styled.div`
   display: flex;
   justify-content: space-around;

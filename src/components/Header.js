@@ -9,4 +9,7 @@ export default styled.div`
   padding: 10px;
   width: calc(100% - 20px);
   z-index: 1;
+  white-space: nowrap;  
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

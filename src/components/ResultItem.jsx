@@ -28,7 +28,7 @@ const StyledLink = styled(Link)`
 
 const ResultText = styled.div`
   width: 154px;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 `;
