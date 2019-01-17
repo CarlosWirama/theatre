@@ -12,8 +12,8 @@ function Index() {
 			<Switch>
 				<Route exact path="/" component={HomePage} />
 				<Route path="/search" component={SearchResultPage} />
-				<Route path="/movie/:id" component={MovieDetailPage} />
-				<Route path="/person/:id" component={PersonDetailPage} />
+				<Route path="/movie" component={MovieDetailPage} />
+				<Route path="/person" component={PersonDetailPage} />
 			</Switch>
 		</BrowserRouter>
 	);

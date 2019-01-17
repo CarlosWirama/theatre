@@ -1,13 +1,16 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
-import SearchHeader from 'components/SearchHeader';
+import Header from 'components/Header';
+import SearchInput from 'components/SearchInput';
 import ResultItem from 'components/ResultItem';
 
 export default function SearchResultLayout(props) {
   return (
     <React.Fragment>
-      <SearchHeader {...props} />
+      <Header>
+        <SearchInput {...props} />
+      </Header>
       <Content>
       { props.isLoading ? `loading...` :
         <Grid container direction="row" justify="center" alignItems="center">

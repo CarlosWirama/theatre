@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Image from 'components/Image';
 
 export default function ResultItem({item}) {
-  const imgPath = item.poster_path
-    ? `https://image.tmdb.org/t/p/w154/${item.poster_path}`
-    : `https://www.raynerealtyonline.com/assets/images/image-not-available.jpg`;
   /** TODO: proper 404image, dont specify width height like this */
   const year = item.release_date
     ? `(${item.release_date.substring(0,4)})`
     : '(TV)';
   const title = item.title || item.name;
   return (
-    <StyledLink to={`movie/${item.id}`}>
-      <img src={imgPath} width="154" height="231" alt={title} />
+    <StyledLink to={`movie?id=${item.id}`}>
+      <Image src={item.poster_path} alt={title} />
       <ResultText>
         {`${year} ${title}`}
         {/* {item.popularity} */}

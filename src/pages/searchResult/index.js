@@ -1,6 +1,6 @@
 import React from 'react';
 import queryStringParser from 'query-string';
-import Tmdb from 'services/tmdbApi';
+import * as Tmdb from 'services/tmdbApi';
 import SearchResultLayout from './SearchResultLayout';
 
 export default class SearchResultPage extends React.Component {
@@ -15,7 +15,7 @@ export default class SearchResultPage extends React.Component {
   }
 
   componentDidMount() {
-    this.getSearchResult()
+    this.getSearchResult();
   }
 
   componentDidUpdate(prevProps, prevState) {

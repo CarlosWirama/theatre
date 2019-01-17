@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Tmdb from 'services/tmdbApi';
-import SearchHeader from 'components/SearchHeader';
+import * as Tmdb from 'services/tmdbApi';
+import Header from 'components/Header';
+import SearchInput from 'components/SearchInput';
 import ResultItem from 'components/ResultItem';
 
 export default class HomePage extends React.Component {
@@ -26,14 +27,16 @@ export default class HomePage extends React.Component {
   render() {
     const { popular, nowShowing, best2018 } = this.state;
     return (
-      <div>
-        <SearchHeader {...this.props} />
+      <React.Fragment>
+        <Header>
+          <SearchInput {...this.props} />
+        </Header>
         <Container>
           <Section title="Most Popular" list={popular.results} />          
           <Section title="Now Showing" list={nowShowing.results} />          
           <Section title="Best of 2018" list={best2018.results} />          
         </Container>
-      </div>
+      </React.Fragment>
     );
   }
 }

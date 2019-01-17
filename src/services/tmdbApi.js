@@ -2,26 +2,26 @@ import moment from 'moment';
 const domain = 'https://api.themoviedb.org/3';
 const apiKey = '7dd602bc9712db0acd193ffe3930be8d';
 
-async function multiSearch(query) {
+export async function multiSearch(query) {
   const endpoint = '/search/multi';
   const url = `${domain}${endpoint}?api_key=${apiKey}&query=${query}`;
-  const res = await fetch(url);
-  return res.json();
+  const ret = await fetch(url);
+  return ret.json();
 }
 
-async function discover(queryString = '') {
+export async function discover(queryString = '') {
   const endpoint = '/discover/movie';
   const url = `${domain}${endpoint}?api_key=${apiKey}${queryString}`;
-  const res = await fetch(url);
-  return res.json();
+  const ret = await fetch(url);
+  return ret.json();
 }
 
-async function discoverPopular() {
+export async function discoverPopular() {
   const queryString = '&sort_by=popularity.desc';
   return await discover(queryString);
 }
 
-async function discoverNowShowing() {
+export async function discoverNowShowing() {
   const daysInTheatre = 30;
   const today = moment().format('YYYY-MM-DD');
   const startDate = moment().subtract(daysInTheatre, 'days').format('YYYY-MM-DD');
@@ -29,15 +29,28 @@ async function discoverNowShowing() {
   return await discover(queryString);
 }
 
-async function discoverBestInYear(year) {
+export async function discoverBestInYear(year) {
   const queryString = `&primary_release_year=${year}&sort_by=vote_average.desc`;
   return await discover(queryString);
 }
 
-export default {
-  multiSearch,
-  discover,
-  discoverPopular,
-  discoverNowShowing,
-  discoverBestInYear,
+export async function movieDetail(movieId) {
+  const endpoint = `/movie/${movieId}`;
+  const url = `${domain}${endpoint}?api_key=${apiKey}`;
+  const ret = await fetch(url);
+  return ret.json();
+}
+
+export async function personDetail(personId) {
+  const endpoint = `/person/${personId}`;
+  const url = `${domain}${endpoint}?api_key=${apiKey}`;
+  const ret = await fetch(url);
+  return ret.json();
+}
+
+export async function movieCredits(movieId) {
+  const endpoint = `/movie/${movieId}/credits`;
+  const url = `${domain}${endpoint}?api_key=${apiKey}`;
+  const ret = await fetch(url);
+  return ret.json();
 }
