@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import styled from 'styled-components';
 import { SearchHeader } from 'components/Header';
-import SearchInput from 'components/SearchInput';
 import ResultItem from 'components/ResultItem';
 
 export default function SearchResultLayout(props) {
@@ -15,7 +14,7 @@ export default function SearchResultLayout(props) {
           <Grid container direction="row" justify="center" alignItems="center">
             { !props.results.length ? `not found` :
               props.results.map((movie, i) => (
-                <ResultItem item={movie} key={i} />
+                <ResultItem item={movie} showYear key={i} />
               ))
             }
           </Grid>
