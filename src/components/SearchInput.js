@@ -1,6 +1,7 @@
 import React from 'react';
-import { Input } from '@material-ui/core';
 import styled from 'styled-components';
+import { Input, IconButton } from '@material-ui/core';
+import { Search } from '@material-ui/icons';
 
 export default class SearchInput extends React.Component {
   constructor(props) {
@@ -30,7 +31,9 @@ export default class SearchInput extends React.Component {
           fullWidth
           disableUnderline
         />
-        <SubmitButton onClick={this.onSearch}>Search</SubmitButton>
+        <IconButton onClick={this.onSearch}>
+          <Search />
+        </IconButton>
       </StyledForm>
     );
   }
@@ -39,12 +42,11 @@ export default class SearchInput extends React.Component {
 const StyledForm = styled.form`
   display: flex;
   width: 100%;
+  align-items: center;
 `;
 const StyledInput = styled(Input)`
   background: white;
   width: 100%;
   padding: 0 5px;
-`;
-const SubmitButton = styled.button`
-  color: black;
+  height: 32px;
 `;

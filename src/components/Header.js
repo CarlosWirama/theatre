@@ -4,12 +4,15 @@ import { IconButton } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import SearchInput from 'components/SearchInput';
 
-export default function Header({ history, children }) {
+export default function Header({ location, history, children }) {
+  const shouldDrawBackButton = location.pathname !== '/';
   return(
     <Container>
-      <IconButton onClick={history.goBack}>
-        <ArrowBack />
-      </IconButton>
+      { shouldDrawBackButton &&
+        <IconButton onClick={history.goBack}>
+          <ArrowBack />
+        </IconButton>
+      }
       {children}
     </Container>
   )

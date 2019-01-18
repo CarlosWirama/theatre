@@ -54,7 +54,7 @@ export default class DetailPage extends React.Component {
     } = listDetailPropertyName;
     return (
       <React.Fragment>
-        <Header>
+        <Header {...this.props}>
           {this.state.name || this.state.title || 'Loading...'}
         </Header>
         { this.state.isDetailLoading ? 'Loading' :
@@ -69,8 +69,8 @@ export default class DetailPage extends React.Component {
             </StyledGrid>
             <LongDescription>{this.state[descriptionPropertyName]}</LongDescription>
             <Cast>
-              {this.state.cast.map(item =>
-                <Link to={`${linkTo}?id=${item.id}`} key={item.id}>
+              {this.state.cast.map((item, i) =>
+                <Link to={`${linkTo}?id=${item.id}`} key={i}>
                   <ListItem container>
                     <Image
                       src={item[`${subImagePrefix}_path`]}

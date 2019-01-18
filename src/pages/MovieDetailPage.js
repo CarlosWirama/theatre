@@ -22,6 +22,7 @@ export default function MovieDetailPage(props) {
         subTitlePropertyName: 'character',
       }}
       queryString={props.location.search}
+      {...props}
     />
   );
 }

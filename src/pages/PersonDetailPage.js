@@ -25,6 +25,7 @@ export default function PersonDetailPage(props) {
         subTitlePropertyName: 'title',
       }}
       queryString={props.location.search}
+      {...props}
     />
   );
 }
